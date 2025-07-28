@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2f5f7;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 14px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+}
+
+.todo-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.todo-input input {
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  width: 60%;
+}
+
+.todo-input input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.todo-input button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.todo-input button:hover {
+  background: #0056b3;
+}
+
+.todo-section {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.todo-section h2 {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 18px;
+}
+
+.todo-item {
+  background: #f8f9fa;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid #007bff;
+  transition: 0.2s ease;
+}
+
+.todo-item.completed {
+  text-decoration: line-through;
+  color: gray;
+  background: #e6e6e6;
+  border-left: 5px solid green;
+}
+
+.todo-item span {
+  flex: 1;
+  cursor: pointer;
+}
+
+.todo-item button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #dc3545;
+  cursor: pointer;
+}
+
+.todo-item button:hover {
+  color: #a71d2a;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 20px;
+  }
+
+  .todo-input {
+    flex-direction: column;
+  }
+
+  .todo-input input,
+  .todo-input button {
+    width: 100%;
+  }
+}
