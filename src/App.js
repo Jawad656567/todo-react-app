@@ -16,9 +16,11 @@ function App() {
     setLoading(true);
     try {
       const res = await axios.get('/api/todos');
-      setTodos(res.data);
+      console.log("Fetched todos:", res.data);
+      setTodos(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error('❌ Failed to fetch todos:', err.message);
+      setTodos([]); // fallback in case of error
     } finally {
       setLoading(false);
     }
@@ -58,12 +60,14 @@ function App() {
     }
   };
 
-  // 🧠 Filtering logic
-  const filteredTodos = todos.filter(todo => {
-    if (filter === 'completed') return todo.completed;
-    if (filter === 'pending') return !todo.completed;
-    return true;
-  });
+  // 🧠 Filtering logic (Safe)
+  const filteredTodos = Array.isArray(todos)
+    ? todos.filter(todo => {
+        if (filter === 'completed') return todo.completed;
+        if (filter === 'pending') return !todo.completed;
+        return true;
+      })
+    : [];
 
   return (
     <div style={styles.container}>
